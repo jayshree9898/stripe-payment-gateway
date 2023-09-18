@@ -21,7 +21,12 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //..........models
-db.users = require('../model/user.model')(sequelize,Sequelize);
+db.users = require('../model/user.model')(sequelize, Sequelize);
+db.userSession = require('../model/userSession.model')(sequelize, Sequelize);
+
+//relation
+db.users.hasMany(db.userSession, { foreignKey: 'user_id' });
+db.userSession.belongsTo(db.users, { foreignKey: 'user_id' });
 
 db.sequelize.sync();
 module.exports = db;
