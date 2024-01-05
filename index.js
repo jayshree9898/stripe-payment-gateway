@@ -15,6 +15,8 @@ app.use(express.static(path.join(__dirname, "public")));
 const userRouter = require('./routes/user.route')
 app.use('/api/v1', userRouter);
 
+const paymentRoute = require('./routes/payment.route')
+app.use('/api/v1', paymentRoute);
 
 let server;
 if (config.protocol == "https") {

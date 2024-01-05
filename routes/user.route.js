@@ -8,7 +8,7 @@ const userController = require('../controller/user.controller');
 
 // router.post('/login', userController.login)
 
-router.post('/payment', userController.payment);
+router.post('/payment-add', userController.payment);
 router.post('/create-user', userController.createUser);
 router.post('/add-card', userController.addCard);
 router.get('/retrieve-customer', userController.retrieveCustomer);

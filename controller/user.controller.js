@@ -42,7 +42,7 @@ const payment = async (req, res) => {
 
     if (validation.fails()) {
         firstMessage = Object.keys(validation.errors.all())[0];
-        return RESPONSE.error(validation.errors.first(firstMessage));
+        return RESPONSE.error(res, validation.errors.first(firstMessage));
     }
 
     try {
@@ -165,7 +165,7 @@ var createToken = function () {
         }
     })
 }
-createToken();
+// createToken();
 
 module.exports = {
     payment,
